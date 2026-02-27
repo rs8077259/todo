@@ -16,4 +16,8 @@ database architechture
 ![database model](images/database_model.png)
 
 #### why its here on github
-I just uploaded it because I don't want to lose it like my auther projects whome i got lost due to hardware faliure, and I know to help to lean things and ....... I am ..... with it, definety make it ......
+I just uploaded it because I don't want to lose it like my other projects whome i got lost due to hardware faliure, and I know its incomplete project
+but i think project are made for fun and learning. I made this because i want to impliment my knowledge of laravel and livewire
+
+
+Thankyou for time
