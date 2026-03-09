@@ -45,31 +45,36 @@ new #[Layout('layout::auth')] #[Title("login")] class extends Component {
 
 ?>
 
-<div>
-    <section class="flex items-center justify-center">
-        <form action="" class="w-65 bg-blue-50 p-2 rounded" wire:submit="save">
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <section class="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-2xl font-semibold text-gray-800 mb-6 text-center">New User</h1>
+        <form action="" wire:submit="save">
             @csrf
-            {{-- Always remember that you are absolutely unique. Just like everyone else. - Margaret Mead --}}
             <x-input type="email" hint="your email address" icon="user" wire:model="email">
 
                 <x-slot:label>
-                    <span>email</span>
+                    <span>Email</span>
                 </x-slot:label>
             </x-input>
             <x-input type="password" hint="your password" icon="key" wire:model="password">
 
                 <x-slot:label>
-                    <span>password</span>
+                    <span>Password</span>
                 </x-slot:label>
             </x-input>
             <x-input type="password" hint="your password" icon="key" wire:model="password_confermation">
 
                 <x-slot:label>
-                    <span>confirm password</span>
+                    <span>Confirm Password</span>
                 </x-slot:label>
             </x-input>
-            <x-toggle label="Remember Me" />
-            <x-button submit>submit</x-button>
+            <div class="flex items-center justify-between">
+                <x-toggle label="Remember Me" wire:model="remember_me" />
+                <a href="/login" class="text-sm text-blue-600 hover:underline">Login</a>
+            </div>
+            <x-button submit class="w-full justify-center">
+                Register Now
+            </x-button>
         </form>
     </section>
 </div>

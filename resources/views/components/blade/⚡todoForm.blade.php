@@ -26,7 +26,7 @@ new class extends Component {
                 ]);
         TodoReminderJob::dispatch($todo);
         $this->toast()->success("Task added", `Task added successfully`)->flash()->send();
-        $this->dispatch("added", $todo);
+        $this->dispatch("added", $todo); // this is done so that we can listen 
     }
 };
 ?>
@@ -40,7 +40,7 @@ new class extends Component {
                 <x-date label="Reminder" hint="remind me" wire:model="date" />
                 <x-time format="24" label="time" hint="time for completion" wire:model="time" />
                 <x-input id="timezone" label="timeZone" wire:model="timezone" x-data
-                x-init="$el.value = Intl.DateTimeFormat().resolvedOptions().timeZone; $el.dispatchEvent(new Event('input'));"
+                {{-- x-init="$el.value = Intl.DateTimeFormat().resolvedOptions().timeZone; $el.dispatchEvent(new Event('input'));" --}}
                 />
                 <x-button submit>submit</x-button>
             </form>
@@ -57,6 +57,7 @@ new class extends Component {
                 updateTodoComponent()
             }
         });
+        $wire.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 
 
