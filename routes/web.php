@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WebPushSubController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -22,3 +23,13 @@ Route::post('/sync',function(Request $request){
     return Response::json([])->status(200);
     
 })->middleware('auth');
+
+
+Route::get('/webpush/publickey',function(){
+    return response()->json([
+        'publicKey' => env("web_push_public_key")
+    ]);
+});
+
+
+Route::resource("/user/web/subscription",WebPushSubController::class)->middleware('auth');

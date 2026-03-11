@@ -46,7 +46,7 @@
                                     <tr>
                                         <th class="px-4 py-3 border-r border-gray-200 text-center">Complete</th>
                                         <th class="px-4 py-3">Work</th>
-                                        <th class="px-4 py-3">Description</th>
+                                        <th class="px-4 py-3 ">Description</th>
                                         <th class="px-4 py-3">Time</th>
                                     </tr>
                                 </thead>
@@ -64,7 +64,7 @@
                                                 </td>
                                                 <td class="px-4 py-2 font-medium text-gray-800" x-text="obj.work"></td>
                                                 <td class="px-4 py-2 text-gray-600" x-text="obj['discription'] || 'No description provided'"></td>
-                                                <td class="px-4 py-2 text-gray-500" x-text="new Date(obj['reminder']).toLocaleString()"></td>
+                                                <td class="px-4 py-2 text-gray-500"  x-text="new Date(obj['reminder']).toLocaleString()"></td>
                                             </tr>
                                         </template>
                                     </template>

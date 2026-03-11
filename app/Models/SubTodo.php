@@ -19,4 +19,8 @@ class SubTodo extends Model
         'serverReminder',
         'intimated'
     ];
+
+    public function todo(){
+        return $this->belongsTo(Todo::class);
+    }
 }
