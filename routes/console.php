@@ -9,4 +9,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote');
 Schedule::call(function(){
     RegisterTodoReminder::dispatch();
-})->everyThirtyMinutes();
+})->everyThirtySeconds();

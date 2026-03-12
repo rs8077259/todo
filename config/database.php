@@ -59,7 +59,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
+                (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => storage_path(env('MYSQL_ATTR_SSL_CA')),
             ]) : [],
         ],
 
@@ -79,7 +79,10 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => storage_path(env('MYSQL_ATTR_SSL_CA')),
+                // Use the correct PDO constant depending on PHP version
+                (PHP_VERSION_ID >= 80500 ? \PDO::MYSQL_ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => storage_path(env('MYSQL_ATTR_SSL_CA')),
+                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT=>true,
+                PDO::ATTR_TIMEOUT => 5, // optional: avoid hanging connections
             ]) : [],
         ],
 

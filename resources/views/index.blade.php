@@ -99,7 +99,7 @@
                             })
                         }
                         else {
-                            /* navigator.serviceWorker.getRegistration().then(
+                            navigator.serviceWorker.getRegistration().then(
                                 reg => {
                                     reg.pushManager.subscribe({
                                         userVisibleOnly: true,
@@ -121,7 +121,7 @@
                                         console.log(error)
                                     })
                                 }
-                            ) */
+                            )
                         }
                     }
                 )
