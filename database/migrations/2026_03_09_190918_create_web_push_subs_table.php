@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('web_push_subs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId("user_id")->constrained()->cascadeOnDelete();
+            $table->foreignUuid("user_id")->constrained()->cascadeOnDelete();
             $table->json('subscription');
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create("todos", function (Blueprint $table) {
             $table->uuid("id")->primary();
-            $table->foreignId("user_id")->references("id")->on("users")->constrained()->cascadeOnDelete();
+            $table->foreignUuid("user_id")->constrained()->cascadeOnDelete();
             $table->string(column: "color", length: 20)->default('blue');
             $table->string(column: "name", length: 50);
         });

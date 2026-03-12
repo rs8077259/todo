@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create("sub_todos", function (Blueprint $table) {
             $table->uuid("id")->primary();
             $table->timestamps();
-            $table->foreignId("todo_id")->references("id")->on("todos")->constrained()->cascadeOnDelete();
+            $table->foreignUuid("todo_id")->constrained()->cascadeOnDelete();
             $table->string(column: "work")->nullable(false);
             $table->string("discription")->nullable();
             $table->timestamp("completed")->nullable();
